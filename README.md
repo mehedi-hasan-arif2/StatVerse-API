@@ -44,4 +44,4 @@ Simply copy the code below and replace `YOUR_USERNAME` with your actual username
 
 
 > [!NOTE]
-> **Engineering Detail:** StatVerse-API operates on zero external dependencies. The entire visualization layer is built using vanilla SVG templating and CSS logic, ensuring maximum performance and minimal load times.
+StatVerse-API operates on zero external dependencies. The entire visualization layer is built using vanilla SVG templating and CSS logic, ensuring maximum performance and minimal load times.
