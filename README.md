@@ -11,9 +11,9 @@ Standard GitHub profile cards felt repetitive and lacked personality. I wanted t
 ### 🚀 What’s Inside the Lab?
 Every card is a product of manual experimentation with SVG paths and GitHub's API architecture:
 
-* **Space Orbit Metrics:** A mathematical representation of developer strength using hexagonal coordinate geometry and orbital animations.
-* **Language Proficiency:** Custom "Battery-style" bars with signature charging animations, built using raw SVG paths.
-* **Evolution Ranking:** A logic-driven grading system (EX to E) that analyzes contribution density and PR impact.
+* **Space Orbit Metrics:** A mathematical representation of developer strength using hexagonal coordinate geometry.
+* **Language Proficiency:** Custom "Battery-style" bars with signature charging animations.
+* **Evolution Ranking:** A logic-driven grading system (EX to E) analyzing contribution density.
 * **Dynamic Particles:** Floating UI elements and twinkling star-fields rendered through pure CSS.
 
 ---
@@ -26,26 +26,22 @@ Every card is a product of manual experimentation with SVG paths and GitHub's AP
 
 ---
 
-### 🔧 Quick Usage (Add to your Profile)
-You don't need to clone the repo to use these. Simply copy the code below and replace `YOUR_USERNAME` with your GitHub username.
+### 🔧 Integration Guide (Add to your Profile)
+Simply copy the code below and replace `YOUR_USERNAME` with your actual username.
 
-#### 1. Space Orbit & Core Stats
 ```html
 <p align="center">
-  <img src="[https://stat-verse-api.vercel.app/api/orbit?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/orbit?username=YOUR_USERNAME)" width="48%" />
+  <img src="[https://stat-verse-api.vercel.app/api/orbit?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/orbit?username=YOUR_USERNAME)" width="48%" alt="Power Radar" />
   &nbsp;&nbsp;
-  <img src="[https://stat-verse-api.vercel.app/api/coreStats?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/coreStats?username=YOUR_USERNAME)" width="48%" />
+  <img src="[https://stat-verse-api.vercel.app/api/coreStats?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/coreStats?username=YOUR_USERNAME)" width="48%" alt="Core Stats" />
 </p>
-
-> [!NOTE]
-StatVerse-API operates on zero external dependencies. The entire visualization layer is built using vanilla SVG templating and CSS logic, ensuring maximum performance and minimal load times.
-
 
 <p align="center">
-  <img src="[https://stat-verse-api.vercel.app/api/languages?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/languages?username=YOUR_USERNAME)" width="48%" />
+  <img src="[https://stat-verse-api.vercel.app/api/languages?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/languages?username=YOUR_USERNAME)" width="48%" alt="Top Languages" />
   &nbsp;&nbsp;
-  <img src="[https://stat-verse-api.vercel.app/api/performance?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/performance?username=YOUR_USERNAME)" width="48%" />
+  <img src="[https://stat-verse-api.vercel.app/api/performance?username=YOUR_USERNAME](https://stat-verse-api.vercel.app/api/performance?username=YOUR_USERNAME)" width="48%" alt="Evolution Rank" />
 </p>
 
 
-
+[!NOTE]
+StatVerse-API operates on zero external dependencies. The entire visualization layer is built using vanilla SVG templating and CSS logic, ensuring maximum performance and minimal load times.
