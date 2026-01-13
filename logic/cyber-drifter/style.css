@@ -1,0 +1,163 @@
+/* Start of Global Setup */
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #020205; font-family: 'Segoe UI', Tahoma, sans-serif; }
+
+#game-container { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+
+/* Animated Starfield Background */
+/* Start of 2026 Hyper-Space Warp */
+.stars-layer { 
+    position: absolute; 
+    inset: 0; 
+    pointer-events: none; 
+    z-index: 0; 
+}
+.layer-1 {
+    background: radial-gradient(white 1.2px, transparent 1.2px);
+    background-size: 80px 80px;
+    animation: warpDrive 3s linear infinite;
+}
+.layer-2 {
+    background: radial-gradient(#00D4FF 1.5px, transparent 1.5px);
+    background-size: 150px 150px;
+    animation: warpDrive 1.5s linear infinite;
+    opacity: 0.5;
+}
+@keyframes warpDrive {
+    from { transform: scale(1) translateY(-100%); opacity: 0; }
+    to { transform: scale(1.4) translateY(100%); opacity: 1; }
+}
+
+/* Creator Branding - Glowing Neon */
+.creator-overlay {
+    position: absolute; top: 15px; width: 100%; text-align: center;
+    color: #7000FF; font-size: 11px; letter-spacing: 2px; z-index: 50;
+    text-shadow: 0 0 10px #7000FF; font-weight: bold;
+}
+.highlight { color: #fff; text-shadow: 0 0 15px #fff; }
+
+/* Mission Failed Section - Modern 2026 Look */
+.fail-text {
+    font-size: 2.5rem; color: #ff3131; text-shadow: 0 0 20px #ff3131;
+    animation: textPulse 1.5s infinite alternate; margin: 10px 0;
+}
+@keyframes textPulse {
+    from { transform: scale(0.95); opacity: 0.8; }
+    to { transform: scale(1.05); opacity: 1; }
+}
+.fail-icon { font-size: 50px; color: #ff3131; filter: drop-shadow(0 0 15px #ff3131); animation: skullFloat 2s infinite ease-in-out; }
+@keyframes skullFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* HUD Styling */
+#hud { position: absolute; top: 40px; width: 100%; display: flex; justify-content: center; z-index: 10; }
+.hud-center {
+    background: rgba(0, 0, 0, 0.7); padding: 8px 25px;
+    border: 1px solid #00D4FF; border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); color: #00D4FF; font-weight: 800;
+}
+
+/* Jet Design */
+#fighter-jet { width: 44px; height: 55px; position: absolute; z-index: 5; pointer-events: none; }
+.jet-core { width: 100%; height: 100%; background: #fff; clip-path: polygon(50% 0%, 100% 80%, 50% 65%, 0% 80%); box-shadow: 0 0 15px #fff; }
+.jet-wings { position: absolute; width: 60px; height: 20px; background: #7000FF; left: -8px; top: 30px; z-index: -1; clip-path: polygon(0 100%, 50% 0, 100% 100%); }
+.jet-flame { width: 14px; height: 25px; background: linear-gradient(to bottom, #00D4FF, transparent); position: absolute; bottom: -15px; left: 15px; border-radius: 50%; animation: flicker 0.1s infinite; }
+
+/* UI Screens */
+#start-menu, #game-over {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.95);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #00D4FF; z-index: 100; text-align: center; padding: 20px;
+}
+#game-over { display: none; }
+button {
+    background: transparent; border: 1px solid #00D4FF; color: #00D4FF;
+    padding: 12px 35px; cursor: pointer; margin-top: 25px; text-transform: uppercase;
+    font-weight: bold; letter-spacing: 2px; transition: 0.3s;
+}
+button:hover { background: #00D4FF; color: #000; box-shadow: 0 0 20px #00D4FF; }
+
+/* Combat Elements */
+.laser { width: 3px; height: 20px; background: #00FF85; position: absolute; box-shadow: 0 0 8px #00FF85; }
+.enemy { width: 35px; height: 35px; background: #1a1a1a; position: absolute; border: 2px solid #ff3131; box-shadow: 0 0 10px #ff3131; border-radius: 4px; }
+
+@keyframes flicker { from { opacity: 0.6; } to { opacity: 1; } }
+
+
+/* Power-Up Item Design */
+/* --- 2026 Hyper-Realistic Power Core --- */
+.power-up {
+    position: absolute; width: 40px; height: 40px;
+    z-index: 45; display: flex; align-items: center; justify-content: center;
+    animation: coreEntry 1.5s ease-out, corePulse 2s infinite ease-in-out;
+}
+
+/* The Core Shape: Glowing Diamond-Pulse */
+.power-up::before {
+    content: ''; position: absolute; width: 20px; height: 20px;
+    background: #fff; transform: rotate(45deg);
+    box-shadow: 0 0 20px #E22BFF, 0 0 40px #00D4FF, inset 0 0 10px rgba(0,0,0,0.5);
+    border: 2px solid #fff;
+    /* Inner Animation: Energy liquid effect */
+    animation: innerLiquid 1s infinite alternate;
+}
+
+/* 7-Color Floating Particles (Independent Movement) */
+.power-up::after {
+    content: ''; position: absolute; width: 4px; height: 4px;
+    border-radius: 50%;
+    /* Creating 7 colored particles using multiple shadows */
+    box-shadow: 
+        25px -10px 0 #FF3131, -20px 15px 0 #39FF14, 15px 25px 0 #00D4FF,
+        -15px -25px 0 #FFF01F, 28px 20px 0 #FF9100, -28px -15px 0 #E22BFF,
+        0px 30px 0 #fff;
+    animation: particleFloat 2s infinite linear;
+}
+
+/* --- Real Electricity Membrane Shield --- */
+.shield {
+    position: absolute; width: 100px; height: 100px;
+    top: -25px; left: -28px; border-radius: 50%;
+    /* The Membrane Surface */
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 30%, rgba(255, 255, 255, 0.1) 100%);
+    box-shadow: 0 0 30px #00D4FF, inset 0 0 20px #00D4FF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden; pointer-events: none;
+}
+
+/* Moving Electricity Arcs (Realistic Lightning) */
+.shield::after {
+    content: ''; position: absolute; inset: -100%;
+    background-image: linear-gradient(
+        transparent 45%, 
+        rgba(255, 255, 255, 0.9) 50%, 
+        transparent 55%
+    );
+    background-size: 100% 20px;
+    filter: blur(1px);
+    animation: lightningStrike 0.15s steps(3) infinite;
+}
+
+/* --- Professional Animations --- */
+@keyframes coreEntry {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes corePulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.15); filter: brightness(1.4); }
+}
+
+@keyframes innerLiquid {
+    from { background: #fff; }
+    to { background: #00D4FF; box-shadow: 0 0 30px #E22BFF; }
+}
+
+@keyframes particleFloat {
+    0% { transform: rotate(0deg) translate(5px) rotate(0deg); }
+    100% { transform: rotate(360deg) translate(5px) rotate(-360deg); }
+}
+
+@keyframes lightningStrike {
+    0% { transform: translateY(-100%) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(100%) rotate(20deg); opacity: 1; }
+}

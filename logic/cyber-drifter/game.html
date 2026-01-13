@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StatVerse | Space Protocol</title>
+    <link rel="stylesheet" href="/cyber-drifter/style.css">
+</head>
+<body>
+    <div id="game-container">
+       <div class="stars-layer layer-1"></div>
+       <div class="stars-layer layer-2"></div>
+
+        <div class="creator-overlay">CORE_ARCHITECT: <span class="highlight">MEHEDI HASAN ARIF</span></div>
+
+        <div id="start-menu">
+            <h1 class="glitch-text">SPACE_PROTOCOL_2026</h1>
+            <p>OPERATOR_SYNC: <span id="op-name">INITIALIZING...</span></p>
+            <button id="start-btn">⚡ INITIALIZE_MISSION</button>
+        </div>
+
+        <div id="hud">
+            <div class="hud-center">
+                <span class="label">SCORE:</span> <span id="score-val">0</span>
+            </div>
+        </div>
+
+        <div id="fighter-jet">
+            <div class="jet-core"></div>
+            <div class="jet-wings"></div>
+            <div class="jet-flame"></div>
+        </div>
+
+        <div id="game-over">
+            <div class="fail-icon">💀</div>
+            <h1 class="fail-text">MISSION_FAILED</h1>
+            <p>TOTAL_SCORE: <span id="final-score">0</span></p>
+            <button onclick="location.reload()">🔄 RE-ATTEMPT</button>
+        </div>
+    </div>
+
+    <a href="https://github.com/mehedi-hasan-arif2" class="exit-btn">
+    ✖ EXIT MISSION
+</a>
+
+<style>
+.exit-btn {
+    position: absolute; top: 15px; left: 15px; z-index: 200;
+    color: #ff3131; text-decoration: none; font-weight: bold;
+    border: 1px solid #ff3131; padding: 5px 15px; border-radius: 5px;
+    background: rgba(255, 49, 49, 0.1); font-size: 12px;
+    transition: 0.3s;
+}
+.exit-btn:hover { background: #ff3131; color: #000; box-shadow: 0 0 15px #ff3131; }
+</style>
+
+    <script src="/cyber-drifter/script.js"></script>
+</body>
+</html>
