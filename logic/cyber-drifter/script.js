@@ -38,7 +38,7 @@ arena.addEventListener("touchstart", (e) => {
 
 arena.addEventListener("touchmove", (e) => {
     if (!isGameActive) return;
-    e.preventDefault(); // ব্রাউজার স্ক্রল বন্ধ করবে
+    e.preventDefault(); 
 
     let touchX = e.touches[0].clientX;
     let touchY = e.touches[0].clientY;
@@ -49,7 +49,7 @@ arena.addEventListener("touchmove", (e) => {
     jetX += deltaX;
     jetY += deltaY;
 
-    // Boundary Protection (জাহাজ যেন স্ক্রিনের বাইরে না যায়)
+    // Boundary Protection 
     if (jetX < 0) jetX = 0;
     if (jetX > window.innerWidth - 44) jetX = window.innerWidth - 44;
     if (jetY < 0) jetY = 0;
