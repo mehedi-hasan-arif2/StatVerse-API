@@ -1,3 +1,15 @@
+// Start of User Identification Protocol
+const urlParams = new URLSearchParams(window.location.search);
+const rawUsername = urlParams.get('username') || 'GUEST_OPERATOR';
+const username = rawUsername.toUpperCase(); 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const opNameDisplay = document.getElementById("op-name");
+    if (opNameDisplay) {
+        opNameDisplay.innerText = username;
+    }
+});
+
 // Start of Space Engine Protocol
 const jet = document.getElementById("fighter-jet");
 const arena = document.getElementById("game-container");

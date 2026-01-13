@@ -130,3 +130,26 @@ button:hover { background: #00D4FF; color: #000; box-shadow: 0 0 20px #00D4FF; }
 @keyframes innerLiquid { from { background: #fff; } to { background: #00D4FF; box-shadow: 0 0 30px #E22BFF; } }
 @keyframes particleFloat { 0% { transform: rotate(0deg) translate(5px) rotate(0deg); } 100% { transform: rotate(360deg) translate(5px) rotate(-360deg); } }
 @keyframes lightningStrike { 0% { transform: translateY(-100%) rotate(0deg); opacity: 0.8; } 100% { transform: translateY(100%) rotate(20deg); opacity: 1; } }
+
+
+
+/* --- Mobile Responsive --- */
+@media (max-width: 600px) {
+    .creator-overlay {
+        top: 15px;
+        padding: 0 5px;
+
+    }
+
+    #exit-btn {
+        padding: 6px 10px !important;
+        font-size: 9px !important
+    }
+
+    .highlight {
+        flex-direction: column;
+        gap: 2px;
+        font-size: 9px;
+    }
+
+}
