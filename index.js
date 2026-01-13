@@ -17,7 +17,6 @@ app.get('/api/performance', performanceLogic);
 app.get('/api/coreStats', coreStats);
 
 // Serving Static Files for Game (CSS, JS)
-// This must be declared before the /play route
 app.use('/cyber-drifter', express.static(path.join(__dirname, 'logic/cyber-drifter')));
 
 // Main Route to serve the game HTML

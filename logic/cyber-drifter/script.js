@@ -8,25 +8,62 @@ let score = 0, isPoweredUp = false, isGameActive = false;
 let jetX = window.innerWidth / 2 - 22, jetY = window.innerHeight - 100;
 const speed = 7, keys = {};
 
+// Start Game Handler
 document.getElementById("start-btn").onclick = () => {
     document.getElementById("start-menu").style.display = "none";
     isGameActive = true;
     spawnEnemies();
     autoFire();
     gameLoop();
-    setInterval(dropRandomPowerUp, 15000); // প্রতি ১৫ সেকেন্ডে একটি পাওয়ার-আপ পড়ার সুযোগ
+    setInterval(dropRandomPowerUp, 15000); 
 };
 
+// Keyboard Listeners
 window.addEventListener("keydown", (e) => keys[e.code] = true);
 window.addEventListener("keyup", (e) => keys[e.code] = false);
 
+// PC Mouse Control
 arena.addEventListener("mousemove", (e) => {
     if (!isGameActive) return;
     jetX = e.clientX - 22; jetY = e.clientY - 30;
 });
 
+// Mobile Touch Logic - Relative Dragging Protocol
+let touchStartX = 0, touchStartY = 0;
+
+arena.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, { passive: false });
+
+arena.addEventListener("touchmove", (e) => {
+    if (!isGameActive) return;
+    e.preventDefault(); // ব্রাউজার স্ক্রল বন্ধ করবে
+
+    let touchX = e.touches[0].clientX;
+    let touchY = e.touches[0].clientY;
+
+    let deltaX = touchX - touchStartX;
+    let deltaY = touchY - touchStartY;
+
+    jetX += deltaX;
+    jetY += deltaY;
+
+    // Boundary Protection (জাহাজ যেন স্ক্রিনের বাইরে না যায়)
+    if (jetX < 0) jetX = 0;
+    if (jetX > window.innerWidth - 44) jetX = window.innerWidth - 44;
+    if (jetY < 0) jetY = 0;
+    if (jetY > window.innerHeight - 80) jetY = window.innerHeight - 80;
+
+    touchStartX = touchX;
+    touchStartY = touchY;
+}, { passive: false });
+
+// Game Update Loop
 function gameLoop() {
     if (!isGameActive) return;
+    
+    // Keyboard Movement Logic
     if (keys["ArrowLeft"] && jetX > 0) jetX -= speed;
     if (keys["ArrowRight"] && jetX < window.innerWidth - 44) jetX += speed;
     if (keys["ArrowUp"] && jetY > 0) jetY -= speed;
@@ -37,7 +74,7 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-// Shooting System with Triple Fire Logic
+// Shooting System
 function createLaser(angle = 0, offset = 20) {
     const laser = document.createElement("div");
     laser.className = "laser";
@@ -58,14 +95,15 @@ function createLaser(angle = 0, offset = 20) {
 
 function autoFire() {
     if (!isGameActive) return;
-    createLaser(0, 20); // Normal Bullet
+    createLaser(0, 20); 
     if (isPoweredUp) {
-        createLaser(-3, 10); // Left Angle
-        createLaser(3, 30);  // Right Angle
+        createLaser(-3, 10); 
+        createLaser(3, 30);  
     }
     setTimeout(autoFire, 250);
 }
 
+// Enemy Protocol
 function spawnEnemies() {
     if (!isGameActive) return;
     const enemy = document.createElement("div");
@@ -102,7 +140,7 @@ function checkCollision(laser, laserInt) {
     });
 }
 
-// Power-Up System
+// Power-Up Mechanism
 function dropRandomPowerUp() {
     if (!isGameActive || isPoweredUp) return;
     const pu = document.createElement("div");
@@ -128,14 +166,10 @@ function activatePowerUp() {
     shield.className = "shield";
     jet.appendChild(shield);
     jet.style.transform = "scale(1.3)";
-    shield.style.position = "absolute"; 
 
     setTimeout(() => {
-        shield.classList.add("flicker");
-        setTimeout(() => {
-            isPoweredUp = false; shield.remove(); jet.style.transform = "scale(1)";
-        }, 2000);
-    }, 7000);
+        isPoweredUp = false; shield.remove(); jet.style.transform = "scale(1)";
+    }, 10000); // 10 seconds of power
 }
 
 function triggerGameOver() {
