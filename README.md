@@ -35,18 +35,18 @@ StatVerse-API allows you to showcase your developer journey. To integrate these 
 ### 🎮 1. The Mission Engine (Interactive)
 Experience the visual stress test live. You can copy the link for your profile or test the engine right now. [cite: 2026-01-13]
 
-* **Copy Link:** `https://stat-verse-api.vercel.app/play?username=YOUR_USERNAME`
-* **Live Demo:** [Launch Experiment 🚀](https://stat-verse-api.vercel.app/play?username=mehedi-hasan-arif2)
+* **Copy Link:** `https://stat-verse-api-gamma.vercel.app/play?username=YOUR_USERNAME`
+* **Live Demo:** [Launch Experiment 🚀](https://stat-verse-api-gamma.vercel.app/play?username=mehedi-hasan-arif2)
 
 ### 📊 2. Metric Cards (API Endpoints)
 Copy and paste the markdown below into your GitHub Profile README. [cite: 2026-01-12]
 
 | Card Type | Markdown Code |
 | :--- | :--- |
-| **Space Orbit** | `![Orbit](https://stat-verse-api.vercel.app/api/orbit?username=YOUR_USERNAME)` |
-| **Core Stats** | `![CoreStats](https://stat-verse-api.vercel.app/api/coreStats?username=YOUR_USERNAME)` |
-| **Performance** | `![Performance](https://stat-verse-api.vercel.app/api/performance?username=YOUR_USERNAME)` |
-| **Language Stats** | `![Languages](https://stat-verse-api.vercel.app/api/languages?username=YOUR_USERNAME)` |
+| **Space Orbit** | `![Orbit](https://stat-verse-api-gamma.vercel.app/api/orbit?username=YOUR_USERNAME)` |
+| **Core Stats** | `![CoreStats](https://stat-verse-api-gamma.vercel.app/api/coreStats?username=YOUR_USERNAME)` |
+| **Performance** | `![Performance](https://stat-verse-api-gamma.vercel.app/api/performance?username=YOUR_USERNAME)` |
+| **Language Stats** | `![Languages](https://stat-verse-api-gamma.vercel.app/api/languages?username=YOUR_USERNAME)` |
 
 
 ## 🛠️ Built With
